@@ -51,8 +51,6 @@ class _ProductListState extends State<ProductList> {
                                 color: Colors.red,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(12))),
-                            height: double.infinity,
-                            width: double.infinity,
                           ),
                         ),
                         const SizedBox(
@@ -67,17 +65,7 @@ class _ProductListState extends State<ProductList> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12))),
                           onPressed: () {
-                            final productContext = widget
-                                .manager.productKeys[index].currentContext!;
-                            //Get position of product image
-                            widget.manager.productPosition =
-                                (productContext.findRenderObject() as RenderBox)
-                                    .localToGlobal(Offset.zero);
-                            //Get size of product image
-                            widget.manager.productSize.value =
-                                productContext.size!;
-                            //Trigger animation
-                            widget.manager.controller.forward();
+                            widget.manager.runAnimation(index);
                           },
                           child: const Text(
                             "Add to cart",

@@ -5,7 +5,11 @@ class CartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
+    return FloatingActionButton.large(
+      elevation: 0,
+      backgroundColor: Colors.yellow.shade600,
+      foregroundColor: Colors.red,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       onPressed: () => {},
       child: const Icon(Icons.shopping_cart),
     );
